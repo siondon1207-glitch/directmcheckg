@@ -1,23 +1,817 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+
+    <!-- JSON-LD Structured Data for Search Engine Optimization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": "제네시스 GV70 (Genesis GV70)",
+          "image": "https://www.genesis.com/content/dam/genesis/kr/assets/models/gv70/2026/genesis-kr-gv70-2026-main.jpg",
+          "description": "2026년형 제네시스 GV70 페이스리프트 모델별 실시간 최저가 가격표와 모의 견적 계산 가이드입니다. 가솔린 2.5 터보, 3.5 터보 및 스포츠 패키지의 세금 포함 실제 취득 비용 및 최적 옵션 조합 추천.",
+          "brand": {
+            "@type": "Brand",
+            "name": "제네시스 (Genesis)"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "KRW",
+            "lowPrice": "53180000",
+            "highPrice": "78780000",
+            "offerCount": "12",
+            "url": "https://finance.reliabledone.com"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "2026년형 제네시스 GV70의 시작 가격은 얼마인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "2026년형 제네시스 GV70 가솔린 2.5 터보 2WD 스탠다드 기본형 모델의 공식 시작 가격은 개별소비세 기준 53,180,000원입니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "GV70 스포츠 패키지와 일반 스탠다드 모델의 주요 차이점은 무엇인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "스포츠 패키지는 전용 전면 그릴, 대구경 머플러 팁, 전용 19인치 또는 21인치 다크 스퍼터링 휠, 스포츠 전용 스티어링 휠 및 시트 메쉬 디자인 등이 추가되어 스탠다드 디자인 시트 및 일반 서스펜션 대비 스포티한 주행 감성과 외관을 제공합니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary-color: #1a252f; /* Deep Luxury Charcoal */
+            --accent-color: #c5a880;  /* Champagne Gold/Bronze Accent */
+            --accent-hover: #b09168;
+            --background-color: #fbfbfb; /* Warm Neutral Light Gray */
+            --card-bg: #ffffff;
+            --text-color: #2c3e50; /* Elegant Dark Slate */
+            --muted-text: #64748b;
+            --light-border: #e2e8f0;
+            --input-focus: #e2d9cf;
+        }
+
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-weight: 300;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3.5rem 1.5rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 1rem 0;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--light-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 0.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            padding: 3.5rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--light-border);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.75rem;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+            font-weight: 500;
+            background-color: #f5f0eb;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .bold-accent {
+            font-weight: 700;
+            color: #b09168;
+        }
+
+        /* Responsive Grid Columns */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Beautiful Table Styling */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 12px;
+            border: 1px solid var(--light-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            font-weight: 500;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--light-border);
+            color: var(--text-color);
+        }
+
+        tr:nth-child(even) td {
+            background-color: #fcfcfc;
+        }
+
+        /* Interactive Estimate Calculator Card */
+        .calc-wrapper {
+            background-color: #faf8f5;
+            border-radius: 16px;
+            border: 2px solid var(--accent-color);
+            padding: 2.5rem;
+            margin: 3.5rem 0;
+        }
+
+        .calc-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .calc-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .calc-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .calc-select, .calc-input {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        .calc-select:focus, .calc-input:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.2);
+        }
+
+        .checkbox-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+        }
+
+        .checkbox-item input {
+            margin-right: 0.8rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .range-slider {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .range-slider input[type="range"] {
+            flex-grow: 1;
+            accent-color: var(--primary-color);
+        }
+
+        .range-value {
+            font-weight: 700;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .results-box {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 25px rgba(26, 37, 47, 0.15);
+        }
+
+        .results-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .results-row.total {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* Lead Form within Dwell Time Optimization */
+        .lead-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .lead-form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            margin-top: 1.5rem;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-submit:hover {
+            background-color: #2c3e50;
+            color: var(--accent-color);
+        }
+
+        /* Key Tags for SEO & Contextual Navigation */
+        .keyword-box {
+            background-color: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            border: 1px solid var(--light-border);
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tags span {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: var(--text-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        /* External Reference Links */
+        .ref-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .ref-list li {
+            margin-bottom: 1rem;
+            background-color: #fafbfc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .ref-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .ref-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            background-color: #f1f5f9;
+            border-top: 1px solid var(--light-border);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>제네시스 GV70 가격표 및 실시간 모의 견적 계산기</h1>
+        <p>2026년형 페이스리프트 트림별 상세 신차 가격표 및 옵션 패키지 분석, 취등록세 포함 최저가 견적 가이드</p>
+    </header>
+
+    <nav aria-label="메인 메뉴">
+        <ul>
+            <li><a href="#intro-section">GV70 특징 개요</a></li>
+            <li><a href="#price-analysis">모델별 신차 가격표</a></li>
+            <li><a href="#options-guide">추천 옵션 패키지</a></li>
+            <li><a href="#purchase-method">구매 수단별 비용 비교</a></li>
+            <li><a href="#calc-section">실시간 모의 계산기</a></li>
+            <li><a href="#community-opinion">실제 차주 후기</a></li>
+        </ul>
     </nav>
+
     <main>
-      <h1>Home page</h1>
+        <!-- Section 1: Introduction -->
+        <section id="intro-section">
+            <h2>제네시스 브랜드의 대표 럭셔리 SUV, GV70 페이스리프트 개요</h2>
+            <p>제네시스의 중형 SUV 라인업을 책임지는 현대자동차의 프리미엄 브랜드 대표 모델, <span class="highlight-text">GV70 페이스리프트</span> 모델은 세련된 디자인과 우수한 품질로 글로벌 자동차 시장에서 호평을 이어가고 있습니다. 특히 2026년형 및 2027년형 신모델의 출시는 기본 품목의 보강과 더불어 한층 정교해진 NVH 설계, 댐퍼 튜닝 등으로 뛰어난 감성 품질을 제공하고 있습니다.</p>
+            <p>신형 GV70은 뛰어난 동력 성능을 가진 가솔린 터보 엔진 라인업을 기본 구조로 채택하고 있습니다. 실구매자들 사이에서 대중적인 선호도가 높은 <span class="bold-accent">GV70 가솔린 2.5 터보</span> 트림부터, 더욱 강력하고 정밀한 파워트레인을 자랑하는 <span class="bold-accent">GV70 가솔린 3.5 터보</span> 트림까지 소비자의 라이프스타일에 맞춘 폭넓은 선택이 가능합니다. 이 외에도 전용 범퍼 디자인과 스포츠 전용 휠, 스포티한 실내 인테리어 트림이 적용되는 <span class="bold-accent">GV70 스포츠 패키지</span> 사양이 젊은 층을 중심으로 탄탄한 매니아층을 형성하고 있습니다.</p>
+            <p>차량 구매를 계획할 때 가장 중요하게 다뤄지는 요소는 바로 실제 인수에 들어가는 구체적인 예산 산정입니다. 공식 출고가가 전부는 아니며, 사륜구동 방식인 <span class="bold-accent">GV70 AWD</span> 탑재 여부와 <span class="bold-accent">GV70 2WD</span> 후륜구동 방식 간의 기본 구동계 차이점, 그리고 패키지 추가 여부에 따라 전체적인 총금액은 무시할 수 없을 정도로 크게 달라집니다. 따라서 공식 가격 정보를 넘어서 나에게 정말 필요한 최적의 옵션을 구성하고 합리적인 비용 한도를 설정하는 단계가 무엇보다 중요합니다.</p>
+        </section>
+
+        <!-- Section 2: Pricing Table -->
+        <section id="price-analysis">
+            <h2>2026년 제네시스 GV70 트림별 신차 가격표 및 제원 정보</h2>
+            <p>차량을 구매하고자 할 때 예상하는 초기 자금 범위와 매월 고정적으로 지출될 유지비는 세부 트림 구성에 따라 천차만별입니다. 아래의 세부 안내표를 통해 대표 트림의 출고가와 필수적인 추가 취등록세를 포함한 전체 평균 비용대를 쉽게 비교해 볼 수 있습니다.</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>세부 파워트레인 및 트림명</th>
+                            <th>구동 및 타이어 규격</th>
+                            <th>기본 출고 금액 (개소세 반영)</th>
+                            <th>예상 취등록세 (7% 기준)</th>
+                            <th>총 예상 실구매가</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2026 GV70 2.5T 스탠다드</strong></td>
+                            <td>2WD 후륜구동 (18인치 기본)</td>
+                            <td>53,180,000 원</td>
+                            <td>3,722,600 원</td>
+                            <td>56,902,600 원</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026 GV70 2.5T 스포츠</strong></td>
+                            <td>2WD 후륜구동 (19인치 기본)</td>
+                            <td>56,580,000 원</td>
+                            <td>3,960,600 원</td>
+                            <td>60,540,600 원</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026 GV70 2.5T 스탠다드 AWD</strong></td>
+                            <td>AWD 사륜구동 (19인치 기본)</td>
+                            <td>56,180,000 원</td>
+                            <td>3,932,600 원</td>
+                            <td>60,112,600 원</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026 GV70 3.5T 스탠다드</strong></td>
+                            <td>2WD 후륜구동 (19인치 기본)</td>
+                            <td>58,680,000 원</td>
+                            <td>4,107,600 원</td>
+                            <td>62,787,600 원</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026 GV70 3.5T 스포츠</strong></td>
+                            <td>2WD 후륜구동 (21인치 기본)</td>
+                            <td>60,880,000 원</td>
+                            <td>4,261,600 원</td>
+                            <td>65,141,600 원</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026 GV70 3.5T 스포츠 AWD</strong></td>
+                            <td>AWD 사륜구동 (21인치 기본)</td>
+                            <td>63,880,000 원</td>
+                            <td>4,471,600 원</td>
+                            <td>68,351,600 원</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>위 표에 명시된 금액은 가장 가볍게 차를 구입하는 경우의 가이드라인으로, 개별소비세 환원 여부 및 차량 등록 시점의 채권 할인 매입가 변화에 따라 미세한 수치의 차이점이 발생할 수 있습니다. 또한 친환경 및 완전 무공해 차량을 선호하는 소비자라면 고전압 배터리와 듀얼 모터 시스템이 적용된 프리미엄 전기 모델인 <span class="bold-accent">Electrified GV70</span> 역시 지속해서 비교해 볼 만한 선택지 중 하나입니다. 과거 고효율 및 장거리 운행에 적합했던 <span class="bold-accent">GV70 디젤 2.2</span> 모델은 페이스리프트 주기를 거치며 친환경 기조에 맞추어 단종 수순을 밟아, 현재 신차 라인업에서는 완전히 배제되었습니다.</p>
+        </section>
+
+        <!-- Section 3: Optional Packages -->
+        <section id="options-guide">
+            <h2>실구매 비용을 좌우하는 GV70 주요 옵션 및 추천 패키지 분석</h2>
+            <p>제네시스의 독특한 오더 메이드 시스템인 인디비주얼 오더 빌드 투 오더 방식을 고려할 때, 기본 사양에 어떠한 세부 옵션을 얹을지 고민해야 실질적인 예산 낭비를 막을 수 있습니다. 차종 동호회나 수많은 전문 컨설팅 상담 시에도 필수적으로 권장하는 핵심 옵션들의 세부 사항들을 정리해 보았습니다.</p>
+
+            <h3>주요 옵션 패키지 및 단품 선택 품목 안내</h3>
+            <ul>
+                <li><strong>GV70 파퓰러 패키지 1:</strong> 고객들이 가장 많이 선호하는 주요 인포테인먼트 장치들을 일체형으로 묶어 가성비를 극대화한 패키지입니다. 고화질 시인성을 확보하는 <span class="bold-accent">GV70 헤드업 디스플레이</span>, 증강현실 내비게이션 및 주변 뷰 기능을 지원하는 <span class="bold-accent">GV70 드라이빙 어시스턴스 패키지 1</span>, 그리고 원활한 보안과 감시를 돕는 <span class="bold-accent">GV70 빌트인 캠 2 패키지</span>가 모두 결합되어 단품 선택 대비 실속 있는 할인이 적용됩니다.</li>
+                <li><strong>GV70 파퓰러 패키지 2:</strong> 파퓰러 패키지 1의 편의 사항들에 고난도 주행 지원 및 안전 보조 장치인 <span class="bold-accent">GV70 드라이빙 어시스턴스 패키지 2</span>, 편안한 승차 편의를 위한 컨비니언스 패키지 및 2열 뒷좌석 승객을 위한 추가 편의 장비가 일괄적으로 반영되어 패밀리카로서의 품질을 대폭 상승시킵니다.</li>
+                <li><strong>실내 인테리어 선택 사양:</strong> 일반 우레탄 및 보급형 마감 중심의 <span class="bold-accent">GV70 스탠다드 디자인 시트</span> 구성을 넘어서, 세련된 실내 연출을 원한다면 인조가죽 파이핑이 더해진 <span class="bold-accent">GV70 천연가죽 시트 옵션</span>이나 최상위 천연 나파가죽에 다이아몬드 패턴 퀼팅 마감이 돋보이는 <span class="bold-accent">GV70 프라임 나파가죽 시트</span>를 고를 수 있습니다. 이를 지원하는 실내 패키지가 바로 <span class="bold-accent">GV70 시그니처 디자인 셀렉션 1</span> 및 최고급 퀼팅 가죽으로 둘러싸이는 <span class="bold-accent">GV70 시그니처 디자인 셀렉션 2</span> 구성입니다.</li>
+                <li><strong>하체 및 주행 감성 시스템:</strong> 차체의 롤링을 효과적으로 잡아주고 최상의 로드 홀딩 능력을 제공하여 우수한 장거리 운행 만족도를 유도하는 프리미엄 유압식 서스펜션과 도로 노면 제어 능력이 연동되는 능동형 댐퍼인 <span class="bold-accent">GV70 전자제어 서스펜션</span>이 있습니다. 스포티한 서스펜션 반응과 주행 성능의 밸런스를 향상시키는 하이브리드 부시 타입의 마운트 역시 이 범주에 포함됩니다.</li>
+                <li><strong>개별 선호 사양:</strong> 뛰어난 개방감을 만들어주는 필수 선호 사양인 <span class="bold-accent">GV70 파노라마 선루프 옵션</span>, 야외 활동을 자주 나가는 활동적인 직군에 적합한 러기지 스크린과 220V 인버팅 소켓이 묶인 <span class="bold-accent">GV70 아웃도어 라이프스타일 패키지</span>, 차량 전체의 음향 밀도를 서라운드 음장으로 완성해 주는 <span class="bold-accent">GV70 렉시콘 프리미엄 사운드 패키지</span>가 주로 많은 추천을 얻고 있습니다.</li>
+            </ul>
+
+            <p>외관 스타일을 극적으로 가다듬어 주는 핵심 휠 사양의 선택지도 존재합니다. 기본 품목 외에 고풍스러운 분위기를 강조하고 주행 시 충격을 정교하게 걸러주는 <span class="bold-accent">GV70 19인치 다크 하이퍼 실버 휠</span> 구성이 있으며, 차체 하부의 꽉 찬 비주얼과 코너링 시 극한의 한계선을 끌어올리는 와이드한 편평비의 <span class="bold-accent">GV70 21인치 다크 스퍼터링 휠</span>은 스포티한 감성의 <span class="bold-accent">GV70 스포츠 가솔린 2.5T 페이스리프트</span> 및 폭발적인 고마력 가속력을 지닌 <span class="bold-accent">GV70 스포츠 가솔린 3.5T 페이스리프트</span> 모델 계약 고객들에게 빠짐없이 어필하는 고성능 전용 사양입니다.</p>
+        </section>
+
+        <!-- Section 4: Purchase Methods (Internet, Online, Support fee terms mixed naturally) -->
+        <section id="purchase-method">
+            <h2>일반 신차 할부부터 다이렉트 리스 및 장기렌트까지: 똑똑한 자금 계산법</h2>
+            <p>신차를 구입하는 방법은 일시불 완납이나 대출 할부 외에도 다변화된 금융 솔루션이 활성화되어 있습니다. 많은 이들이 일상의 통신비를 절약하기 위해 <span class="highlight-text">인터넷 가입</span>을 신청할 때, 각 통신사별로 달라지는 요금제 테이블을 비교하고 가장 높은 수준의 현금지원이나 사은품 및 추가 상품권 혜택을 챙겨주는 신뢰도 높은 가입 업체를 찾듯이, 신차 역시 최상의 조건으로 출고를 지원받을 수 있는 믿음직한 전문 컨설팅 플랫폼을 활용해야 최종적인 자금 유출을 대폭 줄일 수 있습니다.</p>
+            <p>과거 오프라인 영업소 위주의 출고 환경에서 벗어나, 이제는 모바일을 통한 간편한 다이렉트 견적 시스템의 활성화로 소비자들은 네이버 포털이나 구글 검색, 유튜브 시승 리뷰를 참고하여 구체적인 정보를 선제적으로 비교합니다. 더 나아가 인스타그램 피드, 페이스북 그룹, 트위터 트렌드와 카카오톡 단체상담방, 텔레그램 리스 최저가 전송 채널 등에서 비공식 할인 좌표와 성지 매장을 물색하기도 합니다. 하지만 허위 기재된 정보로 인한 피해 역시 발생하므로 공식적인 가이드를 통해 확실하게 보증받는 절차를 밟아야 안전합니다.</p>
+            <p>차량을 구매하는 각 방식별 장단점은 아래와 같습니다.</p>
+            
+            <div class="grid-container">
+                <div>
+                    <h3>1. 전통적인 신차 전액 할부 구매</h3>
+                    <p>내 명의로 차량 등록증을 신규 발급받아 장기간 소유하는 전통적 거래 방식입니다. 소유에 따른 든든한 일체감이 장점이며, 중고차 처분 시 자산 가치를 온전히 회수할 수 있습니다. 다만 초기 취등록세와 매년 수백만 원에 달하는 종합 자동차 보험료 납입 의무가 생겨 초기의 자금 흐름이 정체될 수 있으며, 자산 증식으로 인한 국민건강보험료 가산 비용도 추가 부담 요소가 됩니다.</p>
+                </div>
+                <div>
+                    <h3>2. 다이렉트 신차 장기렌트 및 리스 금융 상품</h3>
+                    <p>명의를 렌트 및 캐피탈 금융 업체로 지정해 이용 요금제 기반으로 매월 대여 요금을 지불하고 주행하는 방식입니다. 차량 유지 관리의 수고를 덜어주며, 보험 가입 경력에 구애받지 않고 만 21세 혹은 만 26세 이상 면허 취득자라면 일괄 책정되는 저렴한 통합료 체계의 혜택을 누릴 수 있습니다. 특히 개인 및 법인 사업자는 손비 처리를 통한 소득세 과세표준 절감 효과가 막강하여, 세무 계산기를 가동해 보았을 때 훨씬 합리적인 자금 흐름을 보여줍니다.</p>
+                </div>
+            </div>
+
+            <p>비용 측면에서도 자가 조율이 한결 편리합니다. 요즘은 토스 앱의 내 차 견적 예측 기능이나 AI 지능형 알고리즘을 지닌 제미나이 및 챗지피티 모델에 평소 본인의 운행 거리를 대입해 보아 최적의 세제 감면 계획을 컨설팅받는 지혜로운 소비자가 크게 증가하는 추세입니다. 복잡하게 얽혀 있는 수입차 세법 규정과 달리, 국산 중형 럭셔리 라인업은 정부 혜택의 사각지대 없이 장기 이용 요금 설계가 가능하므로 신차를 알아보고 계신다면 반드시 사전 검증 과정을 거치실 것을 추천드립니다.</p>
+        </section>
+
+        <!-- Section 5: Interactive Custom Quote Calculator (Dwell Time booster) -->
+        <section id="calc-section">
+            <div class="calc-wrapper">
+                <div class="calc-title">2026년형 제네시스 GV70 모의 견적 및 세금 계산기</div>
+                <p style="text-align: center; color: var(--muted-text); font-size: 0.9rem; margin-bottom: 2rem;">아래의 세부 옵션들을 마우스나 터치로 직접 선택하여 예산 한도에 맞는 최적의 견적 결과를 실시간으로 확인해 보세요.</p>
+                
+                <form id="gv70-form" onsubmit="return false;">
+                    <div class="calc-group">
+                        <label for="engine">기본 엔진 및 파워트레인 선택</label>
+                        <select id="engine" class="calc-select" onchange="calculatePrice()">
+                            <option value="53180000">가솔린 2.5 터보 (기본가: 53,180,000 원)</option>
+                            <option value="58680000">가솔린 3.5 터보 (기본가: 58,680,000 원)</option>
+                            <option value="79740000">Electrified GV70 전기차 (기본가: 79,740,000 원)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-group">
+                        <label for="drive">구동 방식 선택</label>
+                        <select id="drive" class="calc-select" onchange="calculatePrice()">
+                            <option value="0">2WD 후륜구동 (기본 사양 +0 원)</option>
+                            <option value="3000000">AWD 사륜구동 (+3,000,000 원)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-group">
+                        <label for="sport">스타일 패키지 선택</label>
+                        <select id="sport" class="calc-select" onchange="calculatePrice()">
+                            <option value="0">스탠다드 기본형 디자인 (+0 원)</option>
+                            <option value="3400000">스포츠 패키지 (+3,400,000 원)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-group">
+                        <label for="sds">실내 가죽 인테리어 옵션</label>
+                        <select id="sds" class="calc-select" onchange="calculatePrice()">
+                            <option value="0">스탠다드 기본 시트 및 직물 헤드라이닝 (+0 원)</option>
+                            <option value="1700000">시그니처 디자인 셀렉션 1 천연가죽 (+1,700,000 원)</option>
+                            <option value="3000000">시그니처 디자인 셀렉션 2 프라임 나파가죽 (+3,000,000 원)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-group">
+                        <label for="wheel">알로이 휠 인치 규격</label>
+                        <select id="wheel" class="calc-select" onchange="calculatePrice()">
+                            <option value="0">기본 장착 18/19인치 스탠다드 휠 (+0 원)</option>
+                            <option value="1200000">19인치 다크 하이퍼 실버 또는 21인치 다크 스퍼터링 휠 선택 (+1,200,000 원)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-group">
+                        <label for="popular">종합 편의 패키지 (중복 적용 할인 패키지)</label>
+                        <select id="popular" class="calc-select" onchange="calculatePrice()">
+                            <option value="0">단품 개별 선택 (+0 원)</option>
+                            <option value="3700000">파퓰러 패키지 1 (HUD, 드라이빙1, 빌트인캠2) (+3,700,000 원)</option>
+                            <option value="7500000">파퓰러 패키지 2 (파퓰러1 구성 + 드라이빙2, 컨비니언스, 2열컴포트) (+7,500,000 원)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-group">
+                        <label>추가 선호 옵션 체크박스 (복수 선택 가능)</label>
+                        <div class="checkbox-container">
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="sunroof" value="1400000" onchange="calculatePrice()"> 파노라마 선루프 (+1,400,000 원)
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="outdoor" value="400000" onchange="calculatePrice()"> 아웃도어 라이프스타일 (+400,000 원)
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="sound" value="1300000" onchange="calculatePrice()"> 렉시콘 프리미엄 사운드 (+1,300,000 원)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="calc-group" style="margin-top: 2rem;">
+                        <label for="mileage">예상 연간 주행거리 설정 (유지 비용 산출 근거)</label>
+                        <div class="range-slider">
+                            <input type="range" id="mileage" min="5000" max="50000" step="5000" value="20000" oninput="updateMileageVal(this.value)">
+                            <span id="mileage-val" class="range-value">20,000 km</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-group">
+                        <label for="downpayment">자금 사정에 맞춘 초기 선납금 비율 (%)</label>
+                        <div class="range-slider">
+                            <input type="range" id="downpayment" min="0" max="60" step="10" value="20" oninput="updateDownpaymentVal(this.value)">
+                            <span id="downpayment-val" class="range-value">20 %</span>
+                        </div>
+                    </div>
+
+                    <div class="results-box">
+                        <div class="results-row">
+                            <span>공식 차량 가격</span>
+                            <span id="calc-vehicle-price">53,180,000 원</span>
+                        </div>
+                        <div class="results-row">
+                            <span>예상 취등록세 (기본 7% 적용)</span>
+                            <span id="calc-tax-price">3,722,600 원</span>
+                        </div>
+                        <div class="results-row total">
+                            <span>최종 예상 실구매 총액</span>
+                            <span id="calc-total-price">56,902,600 원</span>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 3rem; border-bottom: 1px solid var(--accent-color); padding-bottom: 0.5rem; color: var(--primary-color);">상담 신청 및 맞춤형 종합 세무 컨설팅 문의</h3>
+                    <p style="font-size: 0.9rem; color: var(--muted-text);">위 자가진단 계산에 의거하여, 비공개 할인 프로모션 조건이나 맞춤 장기 이용 비용 견적을 이메일 및 휴대폰 문자 메시지로 발송해 드립니다.</p>
+                    
+                    <div class="lead-form-grid">
+                        <div>
+                            <label for="user-name" style="font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">성함 또는 사업자명</label>
+                            <input type="text" id="user-name" class="calc-input" placeholder="예: 제네시스 차주" required>
+                        </div>
+                        <div>
+                            <label for="user-phone" style="font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">연락처 (휴대폰 번호)</label>
+                            <input type="tel" id="user-phone" class="calc-input" placeholder="예: 010-0000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="lead-form-grid" style="margin-top: 1rem;">
+                        <div>
+                            <label for="user-email" style="font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">이메일 주소</label>
+                            <input type="email" id="user-email" class="calc-input" placeholder="예: owner@genesis.com" required>
+                        </div>
+                        <div>
+                            <label for="purchase-way" style="font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">희망하는 출고 방식</label>
+                            <select id="purchase-way" class="calc-select">
+                                <option value="rent">다이렉트 신차 장기렌트 (가장 추천)</option>
+                                <option value="lease">신차 다이렉트 금융 리스</option>
+                                <option value="cash">전액 현금 일시불 및 일반 은행권 할부</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-submit" onclick="submitQuote()">개인 맞춤형 최저가 혜택 및 실시간 특별 지원금 제안받기</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Section 6: Community Opinion & Reviews (SEO keywords blended) -->
+        <section id="community-opinion">
+            <h2>대형 커뮤니티 및 소셜 채널을 통해 본 GV70 리얼 여론 분석</h2>
+            <p>다양한 자동차 관심 고객들이 활동하는 보배드림 자유게시판이나 디시인사이드 자동차 갤러리, 에펨코리아(펨코) 유저들의 질문글을 살펴보면 차량에 관한 진솔한 이야기를 직접 모니터링할 수 있습니다. 수많은 구매 예정자들이 GV70 스포츠 가솔린 2.5T 페이스리프트 모델의 실제 주행성능과 승차감이 이전 세대 모델과 비교하여 얼마나 부드러워졌는지에 대해 활발하게 주장을 나눕니다.</p>
+            <p>온라인상의 주요 평가 의견들을 요약하면 다음과 같은 골자를 보이고 있습니다.</p>
+            
+            <h3>주요 커뮤니티 유저들이 제안하는 장점과 단점</h3>
+            <ul>
+                <li><strong>탁월한 승차감 및 NVH 제어 능력:</strong> 2.5T 사양에 새롭게 포함된 엔진 서포트 댐퍼 장치와 꼼꼼하게 도포된 하부 소음 방지 흡음재 마감으로 전반적인 정숙성이 극적인 수준으로 조율되었다는 내돈내산 출고 차주들의 우호적인 글들이 다수 게재되고 있습니다.</li>
+                <li><strong>화려하고 실용적인 인테리어 구성:</strong> 새롭게 자리 잡은 초대형 27인치 통합형 OLED 서라운드 디스플레이는 현존하는 동급 프리미엄 외제 SUV 중 최고라는 찬사를 심심치 않게 찾아볼 수 있습니다.</li>
+                <li><strong>연비 유지비의 아쉬움:</strong> 6기통 다운 강력한 퍼포먼스를 내뿜는 2026 GV70 3.5T 스포츠 트림의 경우에는 고성능과 기분 좋은 회전 질감을 선사해 주지만 시내 실연비가 평균 7km/l 대를 마크하여 기름값이나 분기별 부과되는 세금 측면에서 장기적으로 다소 부담된다는 하소연 섞인 지적도 공존합니다.</li>
+            </ul>
+
+            <p>이 때문에 현명한 소비를 원하는 고객층은 연비 효율이 비교적 안정적이며 취득세 및 세 부담이 적절한 2026 GV70 2.5T 스탠다드 구성에 파퓰러 패키지 1을 얹은 다이렉트 자금 운용 기법을 대세로 꼽고 있습니다. 아울러 일각에서는 차량 출고 시에 딜러들에게 지급받는 서비스 품목과 페이백 성지의 좌표 글을 공유하기도 하지만, 불확실한 음성적 경로를 신뢰하기보다는 정직하고 투명하게 법적 보호 범위 안에서 최대치의 금융 할인을 보상받을 수 있는 믿음직한 전문 리스사 브랜드를 통하는 편이 향후 분쟁을 예방하는 가장 완전한 지름길이라는 의견이 점차 큰 비중을 얻고 있습니다.</p>
+        </section>
+
+        <!-- Section 7: External Reliable Authority Links -->
+        <section id="reference-links">
+            <h2>공인된 공신력 있는 자동차 전문 정보 자료원 및 외부 사이트</h2>
+            <p>고객 여러분께 투명하고 일관된 정량적 데이터 기반의 구매 지침을 제공하기 위해 검증을 통과한 공식 대표 채널들을 엄선하여 공유합니다. 자동차 관련 추가 학습 및 상세 규격 검토 시 유용한 사이트들입니다.</p>
+            
+            <ul class="ref-list">
+                <li>
+                    <a href="https://directmcheckh.koreahankang.com" target="_blank" class="ref-link">신차 다이렉트 금융 및 장기 비교 서비스 포털</a>
+                    <p style="font-size: 0.9rem; margin-top: 0.3rem; color: var(--muted-text);">국내 주요 제휴 캐피탈사들의 금리와 견적을 일괄 분석하여 실시간 혜택을 조율해 주는 맞춤형 다이렉트 견적 전문 공식 채널입니다.</p>
+                </li>
+                <li>
+                    <a href="https://namu.wiki/w/%EC%A0%9C%EB%84%A4%EC%8B%9C%EC%8A%A4%20GV70" target="_blank" class="ref-link">나무위키 제네시스 GV70 역사 및 상세 분석 개요</a>
+                    <p style="font-size: 0.9rem; margin-top: 0.3rem; color: var(--muted-text);">모델의 역사적인 태동 배경, 연식 변경 주기별 상세 디자인 보완점, 하체 메커니즘 등 하드웨어 기술 데이터를 투명하게 학습할 수 있는 위키백과 데이터베이스입니다.</p>
+                </li>
+                <li>
+                    <a href="https://www.genesis.com" target="_blank" class="ref-link">제네시스 브랜드 공식 글로벌 웹사이트</a>
+                    <p style="font-size: 0.9rem; margin-top: 0.3rem; color: var(--muted-text);">순수 정품 사양과 공식 카탈로그 다운로드 서비스, 커스터마이징 빌드 투 오더 시스템을 통해 실시간으로 신차 옵션을 세밀하게 설계할 수 있는 공식 제작사 포털입니다.</p>
+                </li>
+            </ul>
+        </section>
     </main>
-  </body>
-</html>
+
+    <!-- Contextual Keyword Clouds for SEO search engines -->
+    <div class="keyword-box">
+        <p style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.8rem; color: var(--primary-color);">함께 많이 찾는 연관 검색 카테고리</p>
+        <div class="keyword-tags">
+            <span>GV70 페이스리프트 가솔린 2.5 터보</span>
+            <span>2026 GV70 스포츠 패키지 차이점</span>
+            <span>GV70 3.5T 실연비 오너 평가</span>
+            <span>GV70 신차 리스 다이렉트 할인 견적</span>
+            <span>제네시스 21인치 다크 스퍼터링 휠 장단점</span>
+            <span>Electrified GV70 세제 혜택 총정리</span>
+            <span>파퓰러 패키지 시그니처 디자인 셀렉션 비교</span>
+        </div>
+    </div>
+
+  
+    <!-- Interactive JS Calculation Engine -->
+    <script>
+        function updateMileageVal(val) {
+            document.getElementById('mileage-val').innerText = parseInt(val).toLocaleString() + ' km';
+            calculatePrice();
+        }
+
+        function updateDownpaymentVal(val) {
+            document.getElementById('downpayment-val').innerText = parseInt(val).toLocaleString() + ' %';
+            calculatePrice();
+        }
+
+        function calculatePrice() {
+            const engine = parseInt(document.getElementById('engine').value);
+            const drive = parseInt(document.getElementById('drive').value);
+            const sport = parseInt(document.getElementById('sport').value);
+            const sds = parseInt(document.getElementById('sds').value);
+            const wheel = parseInt(document.getElementById('wheel').value);
+            const popular = parseInt(document.getElementById('popular').value);
+
+            // Optional Checkboxes
+            const sunroof = document.getElementById('sunroof').checked ? parseInt(document.getElementById('sunroof').value) : 0;
+            const outdoor = document.getElementById('outdoor').checked ? parseInt(document.getElementById('outdoor').value) : 0;
+            const sound = document.getElementById('sound').checked ? parseInt(document.getElementById('sound').value) : 0;
+
+            const vehicleTotal = engine + drive + sport + sds + wheel + popular + sunroof + outdoor + sound;
+            const tax = Math.floor(vehicleTotal * 0.07);
+            const grandTotal = vehicleTotal + tax;
+
+            document.getElementById('calc-vehicle-price').innerText = vehicleTotal.toLocaleString() + ' 원';
+            document.getElementById('calc-tax-price').innerText = tax.toLocaleString() + ' 원';
+            document.getElementById('calc-total-price').innerText = grandTotal.toLocaleString() + ' 원';
+        }
+
+        function submitQuote() {
+            const name = document.getElementById('user-name').value.trim();
+            const phone = document.getElementById('user-phone').value.trim();
+            const email = document.getElementById('user-email').value.trim();
+
+            if (!name || !phone || !email) {
+                alert('모든 필수 고객 정보를 빈칸 없이 입력해 주셔야 견적 안내 전송이 가능합니다.');
+                return;
+            }
+
+            alert('감사합니다. 입력하신 자가 진단 견적 결과를 기반으로, 2026년 한시 특별 혜택 및 추가 금융 지원을 반영한 최저가 포트폴리오를 빠르게 가이드해 드리겠습니다.');
+        }
+
+        // Initialize Price calculation on page load
+        window.onload = function() {
+            calculatePrice();
+        };
+    </script>
+  
